@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media;
-using GeoAPI.Geometries;
+using NetTopologySuite.Geometries;
 
 namespace NetTopologySuite.Windows.Media
 {
@@ -62,7 +62,7 @@ namespace NetTopologySuite.Windows.Media
         ///<param name="pathGeometry">The path geometry.</param>
         ///<param name="coordinates">A coordinate sequence</param>
         ///<returns>The path for the coordinate sequence</returns>
-        private static void AddRing(PathGeometry pathGeometry, Coordinate[] coordinates)
+        private static void AddRing(PathGeometry pathGeometry, NetTopologySuite.Geometries.Coordinate[] coordinates)
         {
             if (coordinates.Length <= 0)
                 return;
@@ -70,15 +70,15 @@ namespace NetTopologySuite.Windows.Media
             pathGeometry.Figures.Add(figure);
         }
 
-        private static IEnumerable<PathSegment> ToPathSegments(Coordinate[] coordinates)
+        private static IEnumerable<PathSegment> ToPathSegments(NetTopologySuite.Geometries.Coordinate[] coordinates)
         {
             for (var i = 1; i < coordinates.Length; i++)
-                yield return new LineSegment(ToPoint(coordinates[i]), true);
+                yield return new System.Windows.Media.LineSegment(ToPoint(coordinates[i]), true);
         }
 
-        private static Point ToPoint(Coordinate coordinate)
+        private static System.Windows.Point ToPoint(NetTopologySuite.Geometries.Coordinate coordinate)
         {
-            return new Point(coordinate.X, coordinate.Y);
+            return new System.Windows.Point(coordinate.X, coordinate.Y);
         }
 
         private static readonly Pen DefaultPen = new Pen(Brushes.Black, 1d);
@@ -95,10 +95,10 @@ namespace NetTopologySuite.Windows.Media
 
         public bool Contains(double x, double y)
         {
-            return Path.FillContains(new Point(x, y));
+            return Path.FillContains(new System.Windows.Point(x, y));
         }
 
-        public bool Contains(Point p)
+        public bool Contains(System.Windows.Point p)
         {
             return Path.FillContains(p);
         }       

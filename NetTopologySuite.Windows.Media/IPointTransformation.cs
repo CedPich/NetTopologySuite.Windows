@@ -33,7 +33,7 @@
 
 using System;
 using WpfPoint = System.Windows.Point;
-using GeoAPI.Geometries;
+using NetTopologySuite.Geometries;
 
 namespace NetTopologySuite.Windows.Media
 {
@@ -44,7 +44,7 @@ namespace NetTopologySuite.Windows.Media
     /// can be efficiently performed by supplying an appropriate transformation.
     /// </summary>
     /// <author>Martin Davis</author>
-    public interface IPointTransformation
+    public interface PointTransformation
     {
         ///<summary>
         /// Transforms a <see cref="Coordinate"/> into a <see cref="WpfPoint"/>.
@@ -73,6 +73,6 @@ namespace NetTopologySuite.Windows.Media
         /// </summary>
         /// <param name="modelSequence">A coordinate sequence</param>
         /// <returns>An array of <see cref="WpfPoint"/>s</returns>
-        WpfPoint[] Transform(ICoordinateSequence modelSequence);
+        WpfPoint[] Transform(CoordinateSequence modelSequence);
     }
 }

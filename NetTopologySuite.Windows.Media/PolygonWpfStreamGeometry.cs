@@ -1,7 +1,7 @@
 #if STREAM_GEOMETRY
 using System.Collections.Generic;
 using System.Windows.Media;
-using GeoAPI.Geometries;
+using NetTopologySuite.Geometries;
 using WpfGeometry = System.Windows.Media.Geometry;
 using WpfPen = System.Windows.Media.Pen;
 using WpfPoint = System.Windows.Point;

@@ -2,26 +2,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <SolutionDir Condition=" '$(SolutionDir)' == '' ">$(ProjectDir)..\</SolutionDir>
-    <TargetFramework>net40-client</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
+	<usewpf>true</usewpf>
     <DefineConstants>$(DefineConstants);PATH_GEOMETRY;STREAM_GEOMETRY</DefineConstants>
   </PropertyGroup>
-
   <Import Project="$(SolutionDir)NetTopologySuite.Common.props" />
-
   <ItemGroup>
     <Compile Include="$(SolutionDir)SharedAssemblyVersion.cs" Link="Properties\SharedAssemblyVersion.cs" />
   </ItemGroup>
-
-  <ItemGroup Condition=" '$(RequiresFrameworkAssemblyReferences)' == 'true' ">
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="GeoAPI" Version="$(GeoAPIPackageReferenceVersion)" />
-    <PackageReference Include="NetTopologySuite" Version="1.15.0-pre052" />
+    <PackageReference Include="NetTopologySuite" Version="2.5.0" />
   </ItemGroup>
 </Project>

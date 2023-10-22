@@ -31,7 +31,7 @@
  *     www.vividsolutions.com
  */
 
-using GeoAPI.Geometries;
+using NetTopologySuite.Geometries;
 using WpfPoint = System.Windows.Point;
 
 namespace NetTopologySuite.Windows.Media
@@ -40,7 +40,7 @@ namespace NetTopologySuite.Windows.Media
     /// Copies point ordinates with no transformtaion
     /// </summary>
     /// <author>Martin Davis</author>
-    public class IdentityPointTransformation : IPointTransformation
+    public class IdentityPointTransformation : PointTransformation
     {
 	    public void Transform(Coordinate model, ref WpfPoint view)
 	    {
@@ -66,7 +66,7 @@ namespace NetTopologySuite.Windows.Media
             return new WpfPoint(x, y);
         }
 
-        public WpfPoint[] Transform(ICoordinateSequence modelSequence)
+        public WpfPoint[] Transform(CoordinateSequence modelSequence)
         {
             var res = new WpfPoint[modelSequence.Count];
             for (var i = 0; i < modelSequence.Count; i++)
@@ -82,7 +82,7 @@ namespace NetTopologySuite.Windows.Media
     /// Transforms coordinates by inverting the y ordinate and adding an offset
     /// </summary>
     /// <author>Martin Davis</author>
-    public class InvertYPointTransformation : IPointTransformation
+    public class InvertYPointTransformation : PointTransformation
     {
         private readonly double _yOffset;
 
@@ -116,7 +116,7 @@ namespace NetTopologySuite.Windows.Media
             return new WpfPoint(x, _yOffset - y);
         }
 
-        public WpfPoint[] Transform(ICoordinateSequence modelSequence)
+        public WpfPoint[] Transform(CoordinateSequence modelSequence)
         {
             var res = new WpfPoint[modelSequence.Count];
             for (var i = 0; i < modelSequence.Count; i++)

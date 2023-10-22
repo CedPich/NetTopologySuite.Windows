@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-using GeoAPI.Geometries;
 using WpfArcSegment = System.Windows.Media.ArcSegment;
 using WpfGeometry = System.Windows.Media.Geometry;
 using WpfPathFigure = System.Windows.Media.PathFigure;

@@ -33,7 +33,6 @@
  */
 using System;
 using System.Collections.Generic;
-using GeoAPI.Geometries;
 using WpfGeometry = System.Windows.Media.Geometry;
 using WpfStreamGeometry = System.Windows.Media.StreamGeometry;
 using WpfStreamGeometryContext = System.Windows.Media.StreamGeometryContext;
