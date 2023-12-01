@@ -6,10 +6,6 @@
 	<usewpf>true</usewpf>
     <DefineConstants>$(DefineConstants);PATH_GEOMETRY;STREAM_GEOMETRY</DefineConstants>
   </PropertyGroup>
-  <Import Project="$(SolutionDir)NetTopologySuite.Common.props" />
-  <ItemGroup>
-    <Compile Include="$(SolutionDir)SharedAssemblyVersion.cs" Link="Properties\SharedAssemblyVersion.cs" />
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="NetTopologySuite" Version="2.5.0" />
   </ItemGroup>
